@@ -1,4 +1,3 @@
-
 ***
 
 ## 🎯 Project Overview
@@ -123,3 +122,4 @@ Zero API calls, instant, unlimited — works offline.
 | **Total** | **₹0 forever** |
 
 ***
+

@@ -1,0 +1,8 @@
+{
+  "name": "dev-data-generator",
+  "version": "1.0.0",
+  "description": "Fake identity generator",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Data Generator - Fake Identity</title>
+    <meta name="description" content="Generate a full fake identity instantly. Free APIs, premium design.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dev Data Generator</h1>
+            <p class="subtitle">Instantly generate complete fake identities with real temporary emails & numbers.</p>
+            <div class="main-actions">
+                <button id="generateBtn" class="btn btn-primary">
+                    <span class="btn-text">
+                        <i class="ph ph-sparkle"></i> Generate Identity
+                    </span>
+                    <div class="loader"></div>
+                </button>
+                <button id="copyAllBtn" class="btn btn-secondary">
+                    <i class="ph ph-copy"></i> Copy All JSON
+                </button>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <!-- Identity Card -->
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2><i class="ph ph-user"></i> Personal Details</h2>
+                </div>
+                <div class="avatar-container">
+                    <div class="avatar" id="userAvatar"><span>?</span></div>
+                    <div>
+                        <div class="data-label">Full Name</div>
+                        <div class="data-value" id="fullName" style="font-size: 1.25rem; font-weight: 600;">--</div>
+                    </div>
+                </div>
+                <div class="data-group">
+                    <div class="data-label">Username</div>
+                    <div class="data-value-container">
+                        <div class="data-value empty-state" id="username">--</div>
+                        <button class="copy-btn" data-copy="username"><i class="ph ph-copy"></i></button>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div class="data-group">
+                        <div class="data-label">Gender</div>
+                        <div class="data-value-container">
+                            <div class="data-value empty-state" id="gender">--</div>
+                            <button class="copy-btn" data-copy="gender"><i class="ph ph-copy"></i></button>
+                        </div>
+                    </div>
+                    <div class="data-group">
+                        <div class="data-label">Date of Birth</div>
+                        <div class="data-value-container">
+                            <div class="data-value empty-state" id="dob">--</div>
+                            <button class="copy-btn" data-copy="dob"><i class="ph ph-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-group">
+                    <div class="data-label">Address</div>
+                    <div class="data-value-container">
+                        <div class="data-value empty-state" id="address">--</div>
+                        <button class="copy-btn" data-copy="address"><i class="ph ph-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2><i class="ph ph-address-book"></i> Contact Info</h2>
+                </div>
+                <div class="data-group">
+                    <div class="data-label">Email Address</div>
+                    <div class="data-value-container">
+                        <div class="data-value empty-state" id="email">--</div>
+                        <button class="copy-btn" data-copy="email"><i class="ph ph-copy"></i></button>
+                    </div>
+                    <button id="createMailBtn" class="btn btn-secondary feature-btn">
+                        <span class="btn-text">Create Live Inbox</span>
+                        <div class="loader"></div>
+                    </button>
+                </div>
+                <div class="data-group">
+                    <div class="data-label">Phone Number</div>
+                    <div class="data-value-container">
+                        <div class="data-value empty-state" id="phone">--</div>
+                        <button class="copy-btn" data-copy="phone"><i class="ph ph-copy"></i></button>
+                    </div>
+                    <button id="getPhoneBtn" class="btn btn-secondary feature-btn">
+                        <span class="btn-text">Get Live SMS Number</span>
+                        <div class="loader"></div>
+                    </button>
+                </div>
+                <div id="mailInfo" style="display: none;"></div>
+            </div>
+
+            <!-- Financial Card -->
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2><i class="ph ph-credit-card"></i> Payment Details</h2>
+                </div>
+                
+                <div class="cc-visual">
+                    <div class="cc-chip"></div>
+                    <div class="cc-number" id="ccNumberVis">#### #### #### ####</div>
+                    <div class="cc-details">
+                        <div>
+                            <div style="font-size: 0.6rem; text-transform: uppercase;">Card Holder</div>
+                            <div id="ccNameVis">YOUR NAME</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.6rem; text-transform: uppercase;">Expires</div>
+                            <div id="ccExpVis">MM/YY</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.6rem; text-transform: uppercase;">CVV</div>
+                            <div id="ccCvvVis">***</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-group">
+                    <div class="data-label">Card Number</div>
+                    <div class="data-value-container">
+                        <div class="data-value empty-state" id="ccNumber">--</div>
+                        <button class="copy-btn" data-copy="ccNumber"><i class="ph ph-copy"></i></button>
+                    </div>
+                </div>
+                <div class="data-row">
+                    <div class="data-group">
+                        <div class="data-label">Expiry</div>
+                        <div class="data-value-container">
+                            <div class="data-value empty-state" id="ccExp">--</div>
+                            <button class="copy-btn" data-copy="ccExp"><i class="ph ph-copy"></i></button>
+                        </div>
+                    </div>
+                    <div class="data-group">
+                        <div class="data-label">CVV</div>
+                        <div class="data-value-container">
+                            <div class="data-value empty-state" id="ccCvv">--</div>
+                            <button class="copy-btn" data-copy="ccCvv"><i class="ph ph-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Inboxes -->
+            <div class="glass-card" style="grid-column: 1 / -1; margin-top: 1rem;">
+                <div class="card-header" style="justify-content: flex-start; gap: 1.5rem; border-bottom: none; margin-bottom: 0;">
+                    <h2 style="margin-right: auto;"><i class="ph ph-tray"></i> Live Inbox</h2>
+                    <button id="tabEmail" class="btn btn-secondary" style="background: var(--primary); color: white; border-color: var(--primary);">Email</button>
+                    <button id="tabSms" class="btn btn-secondary">SMS Messages</button>
+                </div>
+                
+                <div id="emailInbox" class="inbox-view" style="margin-top: 1.5rem; max-height: 400px; overflow-y: auto; padding-right: 0.5rem;">
+                    <div class="empty-state" style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+                        <i class="ph ph-envelope" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p>Generate an email to start receiving messages</p>
+                    </div>
+                </div>
+                
+                <div id="smsInbox" class="inbox-view" style="display: none; margin-top: 1.5rem; max-height: 400px; overflow-y: auto; padding-right: 0.5rem;">
+                    <div class="empty-state" style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+                        <i class="ph ph-device-mobile-message" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                        <p>Generate a phone number to start receiving SMS</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast" id="toast">
+        <i class="ph ph-check-circle" style="color: var(--success); font-size: 1.5rem;"></i>
+        <span id="toastMsg">Copied to clipboard</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

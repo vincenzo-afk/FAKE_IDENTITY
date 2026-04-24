@@ -98,28 +98,4 @@ Zero API calls, instant, unlimited — works offline.
 
 ***
 
-## 🚀 Build Order (1 Weekend Plan)
-
-| Day | Task |
-|---|---|
-| **Hour 1** | Set up HTML shell + Tailwind + design tokens |
-| **Hour 2** | Integrate FakerAPI + RandomUsernameAPI + Luhn card |
-| **Hour 3** | Build Mail.tm live inbox integration |
-| **Hour 4** | Add free-otp-api phone number tab |
-| **Hour 5** | Copy-to-clipboard, JSON export, polish UI |
-| **Hour 6** | Deploy to Vercel (free), test on mobile |
-
-***
-
-## ⚡ Total Cost
-
-| Item | Cost |
-|---|---|
-| All APIs | ₹0 — no keys, no limits |
-| Hosting (Vercel) | ₹0 — free tier |
-| Domain | ₹0 — use `.vercel.app` subdomain |
-| Libraries (Tailwind, qrcode.js) | ₹0 — CDN |
-| **Total** | **₹0 forever** |
-
-***
 
